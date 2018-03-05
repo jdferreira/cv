@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,height=5cm,
+    xmin=0,xmax=15,xminorticks=false,xmajorticks=false,
+    ymin=0,ymax=43,
+    ytick align=outside,
+    axis x line*=bottom,axis y line*=left,
+    tick label style={/pgf/number format/assume math mode=true},
+    ylabel={\# citations},
+    % enlargelimits=0.15,
+    ybar,
+    bar width=12pt,
+]
+\addplot[
+    fill=lightgray,
+    nodes near coords,
+    point meta=explicit symbolic,
+    every node near coord/.append style={font=\small}
+]
+    coordinates{
+        (1,42) [\autocite{Ferreira2010}]
+        (2,20) [\autocite{Ferreira2013}]
+        (3,19) [\autocite{Lamurias2015}]
+        (4,15) [\autocite{Pesquita2014}]
+        (5,12) [\autocite{Ferreira2012a}]
+        (6,10) [\autocite{Ferreira2012}]
+        (7,7)  [\autocite{Ferreira2011}]
+        (8,7)  [\autocite{Grego2010}]
+        (9,6)  [\autocite{Lamurias2014}]
+        (10,5) [\autocite{Batista2012}]
+        (11,5) [\autocite{Ferreira2010a}]
+        (12,3) [\autocite{Couto2012}]
+        (13,2) [\autocite{Tavares2010}]
+        (14,1) [\autocite{Inacio2017}]
+    };
+\addplot[gray,line legend,dashed,sharp plot,update limits=false]
+    coordinates {
+        (7.5,-3)
+        (7.5,35)
+    }
+    node[right] at (7.5,25) {\textit{h}-index};
+
+\end{axis}
+\end{tikzpicture}
